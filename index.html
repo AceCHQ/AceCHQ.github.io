@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huanqia Cai | Alibaba Tongyi Lab</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 全局样式 --- */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        /* --- 布局容器 --- */
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            gap: 60px;
+        }
+
+        /* --- 左侧边栏 (Profile) --- */
+        .sidebar {
+            flex: 0 0 280px;
+            text-align: left;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #111;
+        }
+
+        .sidebar h3 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #333;
+        }
+        .social-links a:hover {
+            color: #0066cc;
+        }
+
+        /* --- 右侧主要内容 (Main) --- */
+        .main-content {
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #222;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bio */
+        .bio-text {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* News */
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .news-list li {
+            margin-bottom: 12px;
+            display: flex;
+        }
+        
+        .news-date {
+            flex: 0 0 100px;
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Publications */
+        .paper-item {
+            display: flex;
+            margin-bottom: 35px;
+            gap: 20px;
+        }
+
+        .paper-img-container {
+            flex: 0 0 180px;
+        }
+        
+        .paper-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            display: block;
+            transition: transform 0.2s; 
+            object-fit: cover; /* 保证图片填充方框 */
+        }
+        .paper-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .paper-info {
+            flex: 1;
+        }
+
+        .paper-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .paper-authors {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .paper-venue {
+            font-style: italic;
+            color: #000;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .paper-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .tag-row a {
+            font-size: 13px;
+            margin-right: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #444;
+        }
+        .tag-row a:hover {
+            color: #0066cc;
+        }
+
+        .me {
+            color: #000;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .sidebar {
+                text-align: center;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+            .profile-img {
+                margin: 0 auto 20px auto;
+            }
+            .paper-item {
+                flex-direction: column;
+            }
+            .paper-img-container {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+            .news-date {
+                flex: 0 0 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 左侧栏：个人信息 -->
+        <aside class="sidebar">
+            <!-- 记得把你的头像命名为 avatar.jpg 并放在 images 文件夹里，或者修改这里的路径 -->
+            <alt="Huanqia Cai" class="profile-img">
+            
+            <h1>Huanqia Cai</h1>
+            <h3>Researcher at Alibaba Tongyi Lab</h3>
+            
+            <div class="contact-info">
+                <p><strong>Email:</strong> caihuanqia@outlook.com</p>
+                <p>Beijing, China</p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=R1IJ2pcAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+                <a href="https://openreview.net/profile?id=%7EHuanqia_Cai1" target="_blank">OpenReview</a>
+            </div>
+        </aside>
+
+        <!-- 右侧栏：主要内容 -->
+        <main class="main-content">
+            
+            <!-- Bio Section -->
+            <section id="bio">
+                <h2>Biography</h2>
+                <div class="bio-text">
+                    <p>
+                        Hi, I am <strong>Huanqia Cai</strong>, a Researcher at <strong>Alibaba Tongyi Lab</strong>. My research interests lie in <strong>Multimodal Understanding and Generation</strong>. Currently, I am focused on leveraging <strong>Reinforcement Learning</strong> to enhance the capabilities of foundation models in both efficient image generation and complex reasoning.
+                    </p>
+                    <p>
+                        I received my master's degree from the <strong>University of Chinese Academy of Sciences (UCAS)</strong>. During my graduate studies, I was fortunate to intern under the supervision of <a href="https://scholar.google.com/citations?user=AjxoEpIAAAAJ&hl=en" target="_blank">Dr. Wei Liu</a>.
+                    </p>
+                    <p>
+                        Prior to joining Alibaba, I worked at <strong>Tencent</strong>, where I served as a core contributor to the <strong>Tencent Hunyuan Vision Language Model</strong> under the guidance of <a href="https://scholar.google.com/citations?user=Jkss014AAAAJ&hl=en" target="_blank">Dr. Han Hu</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section id="news">
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">2025</span>
+                        <span>
+                            Released <strong>Z-Image</strong>, an efficient foundation model specializing in photorealistic image generation.
+                        </span>
+                    </li>
+                   
+                    <li>
+                        <span class="news-date">2025</span>
+                        <span>
+                            New paper on <strong>Self-Correction in LLMs</strong> released on arXiv.
+                        </span>
+                    </li>
+ 
+                    <li>
+                        <span class="news-date">2025</span>
+                        <span>
+                            Released <strong>MM-IQ</strong>, a new benchmark for assessing the core reasoning capabilities of large multimodal models.
+                        </span>
+                    </li>
+            
+                    <li>
+                        <span class="news-date">2024</span>
+                        <span>
+                            Paper "System-2 Mathematical Reasoning" accepted to <strong>TMLR</strong>.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="news-date">2023</span>
+                        <span>
+                            The extended paper "<strong>Tri-token Equipped Transformer Model for Image Matting</strong>" released on arXiv.
+                        </span>
+                    </li>
+ 
+                    <li>
+                        <span class="news-date">2022</span>
+                        <span>
+                            <strong>TransMatting</strong> accepted to <strong>ECCV</strong>.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="news-date">2021</span>
+                        <span>
+                            Won the <strong>2nd Place Award</strong> in NTIRE 2021 Challenge on Multi-modal Aerial View Object Classification at <strong>CVPR 2021</strong>.
+                        </span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications">
+                <h2>Publications</h2>
+
+                <!-- 1. Z-Image (2025) -->
+                <div class="paper-item">
+                    <div class="paper-img-container">
+                        <img src="images/zimage.png" class="paper-img" alt="Z-Image Teaser">
+                    </div>
+                    <div class="paper-info">
+                        <a href="https://arxiv.org/abs/2511.22699" class="paper-title" target="_blank">Z-Image: An Efficient Image Generation Foundation Model</a>
+                        <div class="paper-authors">
+                            Z-Image Team, <span class="me">Huanqia Cai</span>, Sihan Cao, et al.
+                        </div>
+                        <div class="paper-venue">Preprint, 2025</div>
+                        
+                        <div class="paper-desc">
+                            Z-Image is a state-of-the-art foundation model designed for high efficiency. It excels at generating highly photorealistic images with superior visual quality while maintaining low computational cost.
+                        </div>
+
+                        <div class="tag-row">
+                            <a href="https://arxiv.org/abs/2511.22699" target="_blank">[Paper]</a>
+                            <a href="https://huggingface.co/Tongyi-MAI/Z-Image-Turbo" target="_blank">[HuggingFace]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. MM-IQ (2025) -->
+                <div class="paper-item">
+                    <div class="paper-img-container">
+                        <img src="images/MMIQ-image.png" class="paper-img" alt="MM-IQ Teaser">
+                    </div>
+                    <div class="paper-info">
+                        <a href="https://arxiv.org/abs/2502.00698" class="paper-title" target="_blank">MM-IQ: Benchmarking Human-Like Abstraction and Reasoning in Multimodal Models</a>
+                        <div class="paper-authors">
+                            <span class="me">Huanqia Cai</span>*, Yijun Yang, Winston Hu
+                        </div>
+                        <div class="paper-venue">arXiv Preprint, 2025</div>
+                        <div class="tag-row">
+                            <a href="https://arxiv.org/abs/2502.00698" target="_blank">[Paper]</a>
+                            <a href="https://huggingface.co/datasets/huanqia/MM-IQ" target="_blank">[HuggingFace]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Self-Correction (2024) -->
+                <div class="paper-item">
+                    <div class="paper-img-container">
+                        <img src="images/self-correct.jpg" class="paper-img" alt="Self-Correction Teaser">
+                    </div>
+                    <div class="paper-info">
+                        <a href="https://arxiv.org/abs/2410.10735" class="paper-title" target="_blank">Embedding Self-Correction as an Inherent Ability in Large Language Models for Enhanced Mathematical Reasoning</a>
+                        <div class="paper-authors">
+                            Kuofeng Gao, <span class="me">Huanqia Cai</span>, Qingyao Shuai, Dihong Gong, Zhifeng Li 
+                        </div>
+                        <div class="paper-venue">arXiv Preprint, 2024</div>
+                        <div class="tag-row">
+                            <a href="https://arxiv.org/abs/2410.10735" target="_blank">[Paper]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. System-2 Reasoning (2024) -->
+                <div class="paper-item">
+                    <div class="paper-img-container">
+                        <img src="images/system-2.jpg" class="paper-img" alt="TMLR Paper">
+                    </div>
+                    <div class="paper-info">
+                        <a href="https://arxiv.org/abs/2412.16964" class="paper-title" target="_blank">System-2 Mathematical Reasoning via Enriched Instruction Tuning</a>
+                        <div class="paper-authors">
+                            <span class="me">Huanqia Cai</span>, Y Yang, Z Li
+                        </div>
+                        <div class="paper-venue">Transactions on Machine Learning Research (TMLR), 2024</div>
+                        <div class="tag-row">
+                            <a href="https://arxiv.org/abs/2412.16964" target="_blank">[Paper]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Tri-token Matting (2023) -->
+                <div class="paper-item">
+                    <div class="paper-img-container">
+                        <img src="images/tritoken.jpg" class="paper-img" alt="Tri-token Teaser">
+                    </div>
+                    <div class="paper-info">
+                        <a href="https://arxiv.org/abs/2303.06476" class="paper-title" target="_blank">Tri-token Equipped Transformer Model for Image Matting</a>
+                        <div class="paper-authors">
+                            <span class="me">Huanqia Cai</span>, Fanglei Xue, Lele Xu
+                        </div>
+                        <div class="paper-venue">arXiv Preprint, 2023</div>
+                        <div class="tag-row">
+                            <a href="https://arxiv.org/abs/2303.06476" target="_blank">[Paper]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. TransMatting (2022) -->
+                <div class="paper-item">
+                    <div class="paper-img-container">
+                        <img src="images/TransMatting.png" class="paper-img" alt="TransMatting">
+                    </div>
+                    <div class="paper-info">
+                        <a href="https://arxiv.org/abs/2208.03007" class="paper-title" target="_blank">TransMatting: Enhancing Transparent Objects Matting with Transformers</a>
+                        <div class="paper-authors">
+                            <span class="me">Huanqia Cai</span>, Fanglei Xue, Lele Xu, Lili Guo
+                        </div>
+                        <div class="paper-venue">European Conference on Computer Vision (ECCV), 2022</div>
+                        <div class="tag-row">
+                            <a href="https://arxiv.org/abs/2208.03007" target="_blank">[Paper]</a>
+                            <a href="https://acechq.github.io/TransMatting/" target="_blank">[Project Page]</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
