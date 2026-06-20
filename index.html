@@ -73,7 +73,7 @@
             line-height: 1.4;
         }
 
-        .contact-info {
+        /* .contact-info {
             font-size: 15px;
             color: #444;
             line-height: 1.8;
@@ -92,8 +92,56 @@
         }
         .social-links a:hover {
             color: #0066cc;
-        }
+        } */
 
+        .profile-links {
+            margin-top: 28px;
+            font-size: 15px;
+        }
+        
+        .profile-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #444;
+            font-weight: 500;
+            text-decoration: none;
+            width: fit-content;
+        }
+        
+        .profile-link:hover {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .profile-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #f3f5f7;
+            color: #333;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .profile-link:hover .profile-icon {
+            background: #e8f2ff;
+            color: #0066cc;
+        }
+        
+        .profile-text {
+            border-bottom: 1px solid transparent;
+        }
+        
+        .profile-link:hover .profile-text {
+            border-bottom-color: #0066cc;
+        }
+        
         /* --- 右侧主要内容 (Main) --- */
         .main-content {
             flex: 1;
@@ -304,7 +352,7 @@
             <h1>Huanqia Cai</h1>
             <h3>Researcher at Alibaba Tongyi Lab</h3>
 
-            <div class="contact-info">
+            <!-- <div class="contact-info">
                 <p><strong>Email:</strong><br>
                     caihuanqia@outlook.com<br>
                     caihuanqia19@mails.ucas.ac.cn
@@ -317,7 +365,33 @@
             <div class="social-links">
                 <a href="https://scholar.google.com/citations?user=R1IJ2pcAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
                 <a href="https://openreview.net/profile?id=%7EHuanqia_Cai1" target="_blank">OpenReview</a>
+            </div> -->
+
+
+
+            <div class="profile-links">
+                <div class="profile-link">
+                    <span class="profile-icon">⌖</span>
+                    <span class="profile-text">Beijing, China</span>
+                </div>
+            
+                <a class="profile-link" href="mailto:caihuanqia@outlook.com">
+                    <span class="profile-icon">✉</span>
+                    <span class="profile-text">Email</span>
+                </a>
+            
+                <a class="profile-link" href="https://scholar.google.com/citations?user=R1IJ2pcAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">
+                    <span class="profile-icon">GS</span>
+                    <span class="profile-text">Google Scholar</span>
+                </a>
+            
+                <a class="profile-link" href="https://openreview.net/profile?id=%7EHuanqia_Cai1" target="_blank" rel="noopener noreferrer">
+                    <span class="profile-icon">OR</span>
+                    <span class="profile-text">OpenReview</span>
+                </a>
+            
             </div>
+            
         </aside>
 
         <!-- 右侧主要内容 -->
