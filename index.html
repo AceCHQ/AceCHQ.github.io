@@ -94,7 +94,7 @@
             color: #0066cc;
         } */
 
-        .profile-links {
+        /* .profile-links {
             margin-top: 28px;
             font-size: 15px;
         }
@@ -140,7 +140,83 @@
         
         .profile-link:hover .profile-text {
             border-bottom-color: #0066cc;
+        } */
+
+
+        .profile-links {
+        margin-top: 28px;
+        font-size: 15px;
         }
+        
+        /* Location: not clickable */
+        .profile-location {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        color: #555;
+        font-weight: 500;
+        width: fit-content;
+        }
+        
+        /* Clickable links */
+        .profile-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        color: #0066cc;
+        font-weight: 600;
+        text-decoration: none;
+        width: fit-content;
+        transition: color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .profile-link:hover {
+        color: #004499;
+        text-decoration: none;
+        transform: translateX(2px);
+        }
+        
+        .profile-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #eef6ff;
+        color: #0066cc;
+        border: 1px solid #d7eaff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        flex-shrink: 0;
+        }
+        
+        .profile-location .profile-icon {
+        background: #f3f5f7;
+        color: #555;
+        border: 1px solid #edf0f2;
+        }
+        
+        .profile-link:hover .profile-icon {
+        background: #0066cc;
+        color: #fff;
+        border-color: #0066cc;
+        }
+        
+        .profile-text {
+        border-bottom: 1px solid transparent;
+        }
+        
+        .profile-link .profile-text {
+        border-bottom-color: rgba(0, 102, 204, 0.25);
+        }
+        
+        .profile-link:hover .profile-text {
+        border-bottom-color: #004499;
+        }
+
         
         /* --- 右侧主要内容 (Main) --- */
         .main-content {
@@ -370,10 +446,13 @@
 
 
             <div class="profile-links">
-                <div class="profile-link">
+                <!-- <div class="profile-link">
                     <span class="profile-icon">⌖</span>
                     <span class="profile-text">Beijing, China</span>
-                </div>
+                </div> -->
+
+                <div class="profile-location"> <span class="profile-icon">⌖</span> <span class="profile-text">Beijing, China</span> </div>
+                
             
                 <a class="profile-link" href="mailto:caihuanqia@outlook.com">
                     <span class="profile-icon">✉</span>
