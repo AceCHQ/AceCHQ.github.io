@@ -205,6 +205,234 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
     #news .news-date::after { left: 52px; }
 }
 
+    
+/* Publications: always-visible figures, with full-width text above. */
+#publications.publications-v3 {
+    --pub-ink: #172735;
+    --pub-muted: #687586;
+    --pub-line: #e5ebf1;
+    --pub-accent: #0066cc;
+    --featured-figure-height: 340px;
+    --standard-figure-height: 240px;
+    scroll-margin-top: 28px;
+}
+.publications-v3 .pub-section-heading { margin-bottom: 17px; }
+.publications-v3 .pub-section-meta { margin-bottom: 23px; }
+.publications-v3 .pub-legend {
+    margin: 0;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--pub-muted);
+}
+.publications-v3 .pub-group-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 15px;
+    color: #65758a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.publications-v3 .pub-group-title::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: var(--pub-line);
+}
+.publications-v3 .pub-group-title--more { margin-top: 34px; margin-bottom: 4px; }
+.publications-v3 .publication {
+    display: block;
+    min-width: 0;
+    padding: 23px 24px;
+    box-sizing: border-box;
+}
+.publications-v3 .publication--featured {
+    margin-bottom: 19px;
+    border: 1px solid #dfe8f1;
+    border-radius: 12px;
+    background: linear-gradient(115deg, #f8fbff 0%, #ffffff 58%);
+    box-shadow: 0 2px 6px rgba(37, 67, 96, 0.015);
+}
+.publications-v3 .publication--compact {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--pub-line);
+}
+.publications-v3 .publication--compact:last-child { border-bottom: 0; }
+.publications-v3 .pub-meta {
+    display: flex;
+    align-items: center;
+    gap: 9px 15px;
+    flex-wrap: wrap;
+    margin: 0 0 9px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--pub-muted);
+}
+.publications-v3 .pub-venue { font-weight: 500; }
+.publications-v3 .pub-role {
+    border-radius: 4px;
+    padding: 2px 7px;
+    background: #eaf3ff;
+    color: #2364a4;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .15px;
+}
+.publications-v3 .pub-title {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -.25px;
+    overflow-wrap: break-word;
+}
+.publications-v3 .pub-title a { color: var(--pub-ink); text-decoration: none; }
+.publications-v3 .pub-title a:hover {
+    color: var(--pub-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+.publications-v3 .publication--compact .pub-title {
+    font-size: 17px;
+    line-height: 1.45;
+    letter-spacing: -.08px;
+    margin-bottom: 8px;
+}
+.publications-v3 .pub-authors {
+    margin: 0;
+    color: var(--pub-muted);
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+}
+.publications-v3 .pub-authors .me {
+    font-weight: 700;
+    color: #23384c;
+    text-decoration-color: #a5b7c9;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+.publications-v3 .pub-authors sup { font-size: .75em; }
+/* Figures stay in the normal document flow. No collapse controls or scripts. */
+.publications-v3 .pub-media { margin: 18px 0 0; padding: 0; }
+.publications-v3 .pub-media-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #e6edf3;
+    border-radius: 8px;
+    background: #fff;
+    text-decoration: none;
+    cursor: zoom-in;
+}
+.publications-v3 .pub-media-link:hover { border-color: #b7cce0; }
+.publications-v3 .pub-media img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: var(--featured-figure-height);
+    object-fit: contain;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+.publications-v3 .publication--compact .pub-media img {
+    max-height: var(--standard-figure-height);
+}
+.publications-v3 .pub-image-error {
+    padding: 28px 14px;
+    color: #617b91;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+}
+.publications-v3 [hidden] { display: none !important; }
+.publications-v3 .pub-description {
+    margin: 15px 0 0;
+    color: #4c5a6a;
+    font-size: 13.5px;
+    line-height: 1.75;
+}
+.publications-v3 .pub-description strong { font-weight: 600; }
+.publications-v3 .pub-bottom { margin-top: 16px; }
+.publications-v3 .pub-resources {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    min-height: 30px;
+}
+.publications-v3 .pub-resource {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+    min-height: 30px;
+    padding: 4px 10px;
+    border: 1px solid #dce6f0;
+    border-radius: 5px;
+    background: #fff;
+    color: #286aa6;
+    font-size: 11.5px;
+    line-height: 1.5;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.publications-v3 .pub-resource::after {
+    content: "↗";
+    color: #8b9aac;
+    font-size: 12px;
+    font-weight: 400;
+}
+.publications-v3 .pub-resource:hover {
+    background: #f0f6fd;
+    border-color: #a8c5e1;
+    color: #145791;
+    text-decoration: none;
+}
+.publications-v3 .pub-repo-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    margin-left: auto;
+    padding-left: 6px;
+    font-size: 12px;
+}
+.publications-v3 .pub-repo-badge img { display: block; width: auto; height: 20px; }
+.publications-v3 a:focus-visible {
+    outline: 2px solid #7ba7d1;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+@media (max-width: 768px) {
+    .publications-v3 .pub-section-meta { margin-bottom: 18px; }
+    .publications-v3 .pub-legend { font-size: 11px; }
+    .publications-v3 .publication { padding: 18px 16px; }
+    .publications-v3 .pub-title { font-size: 18px; line-height: 1.42; letter-spacing: -.12px; }
+    .publications-v3 .publication--compact .pub-title { font-size: 16px; }
+    .publications-v3 .pub-authors { font-size: 12px; line-height: 1.75; }
+    .publications-v3 .pub-description { font-size: 13px; line-height: 1.75; }
+    .publications-v3 .pub-media { margin-top: 15px; }
+    .publications-v3 .pub-media-link { padding: 7px; border-radius: 6px; }
+    .publications-v3 .pub-media img { max-height: 290px; }
+    .publications-v3 .publication--compact .pub-media img { max-height: 220px; }
+    .publications-v3 .pub-resource { min-height: 34px; }
+    .publications-v3 .pub-group-title--more { margin-top: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .publications-v3 a { transition: none; }
+}
+
     </style>
 </head>
 
@@ -278,111 +506,161 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
                     </li>
                 </ul>
             </section>
-            <section id="publications">
-                <h2>Publications</h2>
-                <div class="pub-legend">* Equal contribution. † Project Lead. Representative papers are highlighted.</div>
-                <div class="paper-item highlighted-paper">
-                    <div class="paper-img-container">
-                        <img src="https://srameo.github.io/projects/z-reward/assets/teaser.png" class="paper-img" alt="Z-Reward Teaser">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2606.09076" class="paper-title" target="_blank" rel="noopener noreferrer">Z-Reward: Beyond Scalar Rewards by Internalizing Reasoning into Score Distributions</a></div>
-                        <div class="paper-authors">Xin Jin*, <span class="me">Huanqia Cai</span>*<sup>†</sup>, Zhen Li, Zechao Zhan, Dengyang Jiang, Aiming Hao, Yuming Jiang, Chunle Guo, Peng Gao, Ming-Ming Cheng, Steven C.H. Hoi</div>
-                        <div class="paper-venue">Tech Report, 2026</div>
-                        <div class="paper-desc" style="margin-bottom: 6px;"><strong>Role:</strong> Project Lead.</div>
-                        <div class="paper-desc"><strong>Z-Reward</strong> is a reasoning-internalized reward modeling framework for visual generation. It decouples reasoning-heavy judgment from efficient reward deployment: a 27B GDSO teacher reasons over rubric-aligned score distributions, while a compact 9B RISD student internalizes the teacher's distributional judgment without generating explicit reasoning chains at inference time.</div>
-                        <div class="tag-row"><a href="https://srameo.github.io/projects/z-reward/" target="_blank" rel="noopener noreferrer">Project</a> <a href="https://arxiv.org/abs/2606.09076" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://arxiv.org/pdf/2606.09076" target="_blank" rel="noopener noreferrer">PDF</a> <a href="https://huggingface.co/papers/2606.09076" target="_blank" rel="noopener noreferrer">HF Daily Paper</a></div>
-                    </div>
-                </div>
-                <div class="paper-item highlighted-paper">
-                    <div class="paper-img-container">
-                        <img src="images/zimage.png" class="paper-img" alt="Z-Image Teaser">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2511.22699" class="paper-title" target="_blank" rel="noopener noreferrer">Z-Image: An Efficient Image Generation Foundation Model</a><span class="badge-row"><a href="https://github.com/Tongyi-MAI/Z-Image" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/github/stars/Tongyi-MAI/Z-Image?style=social&amp;label=Stars" alt="GitHub Stars"></a></span></div>
-                        <div class="paper-authors"><span class="me">Huanqia Cai</span>, Sihan Cao, Ruoyi Du, Peng Gao, Steven Hoi, et al.</div>
-                        <div class="paper-venue">Tech Report, 2025</div>
-                        
-                        <div class="paper-desc">Z-Image is a state-of-the-art foundation model designed for high efficiency. <strong>Community Impact:</strong> It is the #2 most popular Chinese model on Hugging Face and ranks 2nd in global API usage on fal.ai (next to Gemini Nano). It excels at generating photorealistic images with superior visual quality while maintaining low computational cost.</div>
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2511.22699" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/Tongyi-MAI/Z-Image" target="_blank" rel="noopener noreferrer">Code</a> <a href="https://huggingface.co/Tongyi-MAI/Z-Image" target="_blank" rel="noopener noreferrer">HuggingFace</a></div>
-                    </div>
-                </div>
-                <div class="paper-item highlighted-paper">
-                    <div class="paper-img-container">
-                        <img src="images/MMIQ-image.png" class="paper-img" alt="MM-IQ Teaser">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2502.00698" class="paper-title" target="_blank" rel="noopener noreferrer">MM-IQ: Benchmarking Human-Like Abstraction and Reasoning in Multimodal Models</a></div>
-                        <div class="paper-authors"><span class="me">Huanqia Cai</span>, Yijun Yang, Winston Hu</div>
-                        <div class="paper-venue">arXiv Preprint, 2024</div>
-                        
-                        
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2502.00698" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://huggingface.co/datasets/huanqia/MM-IQ" target="_blank" rel="noopener noreferrer">Dataset</a></div>
-                    </div>
-                </div>
-                <!-- Pixel-space diffusion: standard publication entry. -->
-                <div class="paper-item" id="pixel-space-diffusion">
-                    <div class="paper-info">
-                        <a href="https://arxiv.org/abs/2608.16887" class="paper-title" target="_blank" rel="noopener noreferrer">An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models</a>
-                        <div class="paper-authors">Dengyang Jiang, Ruoyi Du, Zhennan Chen, Dongyang Liu, Zanyi Wang, Mingzhe Zheng, Xiangpeng Yang, <span class="me">Huanqia Cai</span>, Aiming Hao, Yuming Jiang, Peng Gao, Harry Yang, Steven Hoi</div>
-                        <div class="paper-venue">arXiv Preprint, 2026</div>
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2608.16887" target="_blank" rel="noopener noreferrer">Paper</a></div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <div class="paper-img-container">
-                        <img src="images/self-correct.jpg" class="paper-img" alt="Self-Correction Teaser">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2410.10735" class="paper-title" target="_blank" rel="noopener noreferrer">Embedding Self-Correction as an Inherent Ability in Large Language Models for Enhanced Mathematical Reasoning</a></div>
-                        <div class="paper-authors">Kuofeng Gao*, <span class="me">Huanqia Cai</span>*, Qingyao Shuai, Dihong Gong, Zhifeng Li</div>
-                        <div class="paper-venue">arXiv Preprint, 2024</div>
-                        
-                        
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2410.10735" target="_blank" rel="noopener noreferrer">Paper</a></div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <div class="paper-img-container">
-                        <img src="images/system-2.jpg" class="paper-img" alt="TMLR Paper">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2412.16964" class="paper-title" target="_blank" rel="noopener noreferrer">System-2 Mathematical Reasoning via Enriched Instruction Tuning</a></div>
-                        <div class="paper-authors"><span class="me">Huanqia Cai</span>, Yijun Yang, Zhifeng Li</div>
-                        <div class="paper-venue">Transactions on Machine Learning Research (TMLR), 2024</div>
-                        
-                        
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2412.16964" target="_blank" rel="noopener noreferrer">Paper</a></div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <div class="paper-img-container">
-                        <img src="images/tritoken.jpg" class="paper-img" alt="Tri-token Teaser">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2303.06476" class="paper-title" target="_blank" rel="noopener noreferrer">Tri-token Equipped Transformer Model for Image Matting</a></div>
-                        <div class="paper-authors"><span class="me">Huanqia Cai</span>, Fanglei Xue, Lele Xu, LiLi Guo, Zhifeng Li, Wei Liu</div>
-                        <div class="paper-venue">arXiv Preprint, 2023</div>
-                        
-                        
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2303.06476" target="_blank" rel="noopener noreferrer">Paper</a></div>
-                    </div>
-                </div>
-                <div class="paper-item">
-                    <div class="paper-img-container">
-                        <img src="images/TransMatting.png" class="paper-img" alt="TransMatting">
-                    </div>
-                    <div class="paper-info">
-                        <div><a href="https://arxiv.org/abs/2208.03007" class="paper-title" target="_blank" rel="noopener noreferrer">TransMatting: Enhancing Transparent Objects Matting with Transformers</a></div>
-                        <div class="paper-authors"><span class="me">Huanqia Cai</span>, Fanglei Xue, Lele Xu, Lili Guo</div>
-                        <div class="paper-venue">European Conference on Computer Vision (ECCV), 2022</div>
-                        
-                        
-                        <div class="tag-row"><a href="https://arxiv.org/abs/2208.03007" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://acechq.github.io/TransMatting/" target="_blank" rel="noopener noreferrer">Project</a> <a href="https://github.com/AceCHQ/TransMatting" target="_blank" rel="noopener noreferrer">Dataset</a></div>
-                    </div>
-                </div>
-            </section>
+            <section aria-labelledby="publications-title" class="publications-v3" id="publications">
+<h2 class="pub-section-heading" id="publications-title">Publications</h2>
+<div class="pub-section-meta">
+<p class="pub-legend">* Equal contribution. † Project Lead.</p>
+
+</div>
+<h3 class="pub-group-title">Selected work</h3>
+<article aria-labelledby="z-reward-title" class="publication publication--featured" id="z-reward">
+<div class="pub-meta">
+<span class="pub-venue">Tech Report, 2026</span>
+<span class="pub-role">Project Lead</span>
+</div>
+<h3 class="pub-title" id="z-reward-title"><a href="https://arxiv.org/abs/2606.09076" rel="noopener noreferrer" target="_blank">Z-Reward: Beyond Scalar Rewards by Internalizing Reasoning into Score Distributions</a></h3>
+<p class="pub-authors">Xin Jin*, <span class="me">Huanqia Cai</span>*<sup>†</sup>, Zhen Li, Zechao Zhan, Dengyang Jiang, Aiming Hao, Yuming Jiang, Chunle Guo, Peng Gao, Ming-Ming Cheng, Steven C.H. Hoi</p><figure class="pub-media">
+<a aria-label="Open full-size figure for Z-Reward" class="pub-media-link" href="https://srameo.github.io/projects/z-reward/assets/teaser.png" rel="noopener noreferrer" target="_blank">
+<img alt="Z-Reward Teaser" decoding="async" loading="eager" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="https://srameo.github.io/projects/z-reward/assets/teaser.png"/>
+<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
+</a>
+
+</figure>
+<p class="pub-description"><strong>Z-Reward</strong> is a reasoning-internalized reward modeling framework for visual generation. It decouples reasoning-heavy judgment from efficient reward deployment: a 27B GDSO teacher reasons over rubric-aligned score distributions, while a compact 9B RISD student internalizes the teacher's distributional judgment without generating explicit reasoning chains at inference time.</p>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://srameo.github.io/projects/z-reward/" rel="noopener noreferrer" target="_blank">Project</a>
+<a class="pub-resource" href="https://arxiv.org/abs/2606.09076" rel="noopener noreferrer" target="_blank">Paper</a>
+<a class="pub-resource" href="https://arxiv.org/pdf/2606.09076" rel="noopener noreferrer" target="_blank">PDF</a>
+<a class="pub-resource" href="https://huggingface.co/papers/2606.09076" rel="noopener noreferrer" target="_blank">HF Daily Paper</a>
+</div>
+
+</div>
+</article>
+<article aria-labelledby="z-image-title" class="publication publication--featured" id="z-image">
+<div class="pub-meta">
+<span class="pub-venue">Tech Report, 2025</span>
+</div>
+<h3 class="pub-title" id="z-image-title"><a href="https://arxiv.org/abs/2511.22699" rel="noopener noreferrer" target="_blank">Z-Image: An Efficient Image Generation Foundation Model</a></h3>
+<p class="pub-authors"><span class="me">Huanqia Cai</span>, Sihan Cao, Ruoyi Du, Peng Gao, Steven Hoi, et al.</p><figure class="pub-media">
+<a aria-label="Open full-size figure for Z-Image" class="pub-media-link" href="images/zimage.png" rel="noopener noreferrer" target="_blank">
+<img alt="Z-Image Teaser" decoding="async" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="images/zimage.png"/>
+<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
+</a>
+
+</figure>
+<p class="pub-description">Z-Image is a state-of-the-art foundation model designed for high efficiency. <strong>Community Impact:</strong> It is the #2 most popular Chinese model on Hugging Face and ranks 2nd in global API usage on fal.ai (next to Gemini Nano). It excels at generating photorealistic images with superior visual quality while maintaining low computational cost.</p>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2511.22699" rel="noopener noreferrer" target="_blank">Paper</a>
+<a class="pub-resource" href="https://github.com/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank">Code</a>
+<a class="pub-resource" href="https://huggingface.co/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank">HuggingFace</a>
+<a class="pub-repo-badge" href="https://github.com/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank"><img alt="GitHub Stars" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="https://img.shields.io/github/stars/Tongyi-MAI/Z-Image?style=social&amp;label=Stars"/><span hidden="">GitHub ↗</span></a></div>
+
+</div>
+</article>
+<article aria-labelledby="mm-iq-title" class="publication publication--featured" id="mm-iq">
+<div class="pub-meta">
+<span class="pub-venue">arXiv Preprint, 2024</span>
+</div>
+<h3 class="pub-title" id="mm-iq-title"><a href="https://arxiv.org/abs/2502.00698" rel="noopener noreferrer" target="_blank">MM-IQ: Benchmarking Human-Like Abstraction and Reasoning in Multimodal Models</a></h3>
+<p class="pub-authors"><span class="me">Huanqia Cai</span>, Yijun Yang, Winston Hu</p><figure class="pub-media">
+<a aria-label="Open full-size figure for MM-IQ" class="pub-media-link" href="images/MMIQ-image.png" rel="noopener noreferrer" target="_blank">
+<img alt="MM-IQ Teaser" decoding="async" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="images/MMIQ-image.png"/>
+<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
+</a>
+
+</figure>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2502.00698" rel="noopener noreferrer" target="_blank">Paper</a>
+<a class="pub-resource" href="https://huggingface.co/datasets/huanqia/MM-IQ" rel="noopener noreferrer" target="_blank">Dataset</a>
+</div>
+
+</div>
+</article>
+<h3 class="pub-group-title pub-group-title--more">More publications</h3>
+<article aria-labelledby="pixel-space-diffusion-title" class="publication publication--compact" id="pixel-space-diffusion">
+<div class="pub-meta">
+<span class="pub-venue">arXiv Preprint, 2026</span>
+</div>
+<h3 class="pub-title" id="pixel-space-diffusion-title"><a href="https://arxiv.org/abs/2608.16887" rel="noopener noreferrer" target="_blank">An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models</a></h3>
+<p class="pub-authors">Dengyang Jiang, Ruoyi Du, Zhennan Chen, Dongyang Liu, Zanyi Wang, Mingzhe Zheng, Xiangpeng Yang, <span class="me">Huanqia Cai</span>, Aiming Hao, Yuming Jiang, Peng Gao, Harry Yang, Steven Hoi</p>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2608.16887" rel="noopener noreferrer" target="_blank">Paper</a>
+</div>
+</div>
+</article>
+<article aria-labelledby="self-correction-title" class="publication publication--compact" id="self-correction">
+<div class="pub-meta">
+<span class="pub-venue">arXiv Preprint, 2024</span>
+</div>
+<h3 class="pub-title" id="self-correction-title"><a href="https://arxiv.org/abs/2410.10735" rel="noopener noreferrer" target="_blank">Embedding Self-Correction as an Inherent Ability in Large Language Models for Enhanced Mathematical Reasoning</a></h3>
+<p class="pub-authors">Kuofeng Gao*, <span class="me">Huanqia Cai</span>*, Qingyao Shuai, Dihong Gong, Zhifeng Li</p><figure class="pub-media">
+<a aria-label="Open full-size figure for Self-Correction" class="pub-media-link" href="images/self-correct.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="Self-Correction Teaser" decoding="async" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="images/self-correct.jpg"/>
+<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
+</a>
+
+</figure>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2410.10735" rel="noopener noreferrer" target="_blank">Paper</a>
+</div>
+
+</div>
+</article>
+<article aria-labelledby="system-2-title" class="publication publication--compact" id="system-2">
+<div class="pub-meta">
+<span class="pub-venue">Transactions on Machine Learning Research (TMLR), 2024</span>
+</div>
+<h3 class="pub-title" id="system-2-title"><a href="https://arxiv.org/abs/2412.16964" rel="noopener noreferrer" target="_blank">System-2 Mathematical Reasoning via Enriched Instruction Tuning</a></h3>
+<p class="pub-authors"><span class="me">Huanqia Cai</span>, Yijun Yang, Zhifeng Li</p><figure class="pub-media">
+<a aria-label="Open full-size figure for System-2 Reasoning" class="pub-media-link" href="images/system-2.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="TMLR Paper" decoding="async" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="images/system-2.jpg"/>
+<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
+</a>
+
+</figure>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2412.16964" rel="noopener noreferrer" target="_blank">Paper</a>
+</div>
+
+</div>
+</article>
+<article aria-labelledby="tri-token-title" class="publication publication--compact" id="tri-token">
+<div class="pub-meta">
+<span class="pub-venue">arXiv Preprint, 2023</span>
+</div>
+<h3 class="pub-title" id="tri-token-title"><a href="https://arxiv.org/abs/2303.06476" rel="noopener noreferrer" target="_blank">Tri-token Equipped Transformer Model for Image Matting</a></h3>
+<p class="pub-authors"><span class="me">Huanqia Cai</span>, Fanglei Xue, Lele Xu, LiLi Guo, Zhifeng Li, Wei Liu</p>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2303.06476" rel="noopener noreferrer" target="_blank">Paper</a>
+</div>
+
+</div>
+</article>
+<article aria-labelledby="transmatting-title" class="publication publication--compact" id="transmatting">
+<div class="pub-meta">
+<span class="pub-venue">European Conference on Computer Vision (ECCV), 2022</span>
+</div>
+<h3 class="pub-title" id="transmatting-title"><a href="https://arxiv.org/abs/2208.03007" rel="noopener noreferrer" target="_blank">TransMatting: Enhancing Transparent Objects Matting with Transformers</a></h3>
+<p class="pub-authors"><span class="me">Huanqia Cai</span>, Fanglei Xue, Lele Xu, Lili Guo</p>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2208.03007" rel="noopener noreferrer" target="_blank">Paper</a>
+<a class="pub-resource" href="https://acechq.github.io/TransMatting/" rel="noopener noreferrer" target="_blank">Project</a>
+<a class="pub-resource" href="https://github.com/AceCHQ/TransMatting" rel="noopener noreferrer" target="_blank">Dataset</a>
+</div>
+
+</div>
+</article>
+</section>
         </main>
     </div>
+
 </body>
 </html>
