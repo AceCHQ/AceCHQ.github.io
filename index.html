@@ -433,10 +433,167 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
     .publications-v3 a { transition: none; }
 }
 
+    
+/* Original, compact Stars badge placed directly beside the paper title. */
+.publications-v3 #z-image .pub-repo-badge--inline {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    min-height: 20px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.publications-v3 #z-image .pub-repo-badge--inline img {
+    display: block;
+    width: auto;
+    height: 20px;
+    max-width: 100%;
+}
+.publications-v3 #z-image .pub-repo-badge--inline img[hidden] { display: none; }
+.publications-v3 #z-image .pub-repo-badge--inline span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pub-accent, #0066cc);
+}
+
+
+    
+/* Small navigation and first-screen refinements. Content remains unchanged. */
+html { scroll-behavior: smooth; }
+#bio, #news, #selected-work, #more-publications, .publication {
+    scroll-margin-top: 28px;
+}
+.skip-link {
+    position: fixed; top: -70px; left: 20px; z-index: 100;
+    padding: 10px 16px; background: #fff; color: #0066cc;
+    border: 1px solid #aac8e6; border-radius: 6px;
+}
+.skip-link:focus { top: 14px; }
+.site-nav { margin-top: 27px; padding-top: 20px; border-top: 1px solid var(--border); }
+.site-nav-label {
+    margin: 0 0 12px; color: #7a8795; font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+}
+.site-nav-links { display: grid; gap: 3px; }
+.site-nav a {
+    padding: 7px 11px; border-left: 2px solid transparent;
+    border-radius: 0 5px 5px 0; color: #647486; font-size: 13px;
+    line-height: 1.5; text-decoration: none;
+}
+.site-nav a:hover { color: var(--link); background: #f3f8fd; text-decoration: none; }
+.site-nav a[aria-current="location"] {
+    color: #075caa; border-left-color: #2074c3; background: #f0f6fd; font-weight: 700;
+}
+#bio { margin-bottom: 34px; }
+.project-shortcuts { margin-top: 23px; }
+.project-shortcuts-label {
+    margin: 0 0 9px; font-size: 10px; letter-spacing: 1.4px;
+    text-transform: uppercase; font-weight: 700; color: #7a8795;
+}
+.project-shortcuts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.project-shortcut {
+    display: block; padding: 12px 15px; border: 1px solid #e0e8f0;
+    border-radius: 8px; background: #fff; text-decoration: none;
+}
+.project-shortcut:hover { background: #f7fbff; border-color: #b8cee3; text-decoration: none; }
+.project-shortcut-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.project-shortcut strong { color: #20364a; font-size: 15px; font-weight: 700; }
+.project-shortcut-arrow { color: #8598a9; font-size: 14px; }
+.project-shortcut-description { display: block; color: #687889; font-size: 12px; margin-top: 2px; }
+.site-footer {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px 0 6px; border-top: 1px solid #e5ebf1;
+    font-size: 12px; color: #758495;
+}
+.site-footer a { color: #60788f; }
+.site-nav a:focus-visible, .project-shortcut:focus-visible, .site-footer a:focus-visible {
+    outline: 2px solid #7ba7d1; outline-offset: 4px;
+}
+
+/* More publications: two whole entries, plus one native expandable group. */
+.publications-v3 .pub-more { margin-top: 34px; }
+.publications-v3 .pub-more-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+.publications-v3 .pub-more-heading .pub-group-title { flex: 1; min-width: 0; margin: 0; }
+.publications-v3 .pub-more-count { flex-shrink: 0; color: var(--pub-muted); font-size: 11px; line-height: 1.5; }
+.publications-v3 .pub-more-preview > .publication:last-child { border-bottom: 0; }
+.publications-v3 .pub-more-details { margin: 0; padding: 0; }
+.publications-v3 .pub-more-toggle {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px 16px;
+    flex-wrap: wrap; box-sizing: border-box; min-height: 46px; padding: 11px 16px;
+    border: 1px solid #dfe8f1; border-radius: 8px; background: #f8fbff;
+    cursor: pointer; list-style: none; font-size: 12px; line-height: 1.6;
+    transition: background .15s ease, border-color .15s ease;
+}
+.publications-v3 .pub-more-toggle::-webkit-details-marker { display: none; }
+.publications-v3 .pub-more-toggle::marker { content: ''; }
+.publications-v3 .pub-more-toggle:hover { background: #f1f7fd; border-color: #b8cee3; }
+.publications-v3 .pub-more-status { color: var(--pub-muted); font-variant-numeric: tabular-nums; }
+.publications-v3 .pub-more-action {
+    display: inline-flex; align-items: center; gap: 9px; color: var(--pub-accent);
+    font-weight: 600; margin-left: auto;
+}
+.publications-v3 .pub-more-chevron { display: block; width: 14px; height: 14px; flex-shrink: 0; transition: transform .15s ease; }
+.publications-v3 .pub-more-expanded { display: none; }
+.publications-v3 .pub-more-details[open] > summary .pub-more-collapsed { display: none; }
+.publications-v3 .pub-more-details[open] > summary .pub-more-expanded { display: inline; }
+.publications-v3 .pub-more-details[open] > summary .pub-more-chevron { transform: rotate(180deg); }
+.publications-v3 .pub-more-rest { padding-top: 3px; }
+.publications-v3 .pub-more-footer { display: flex; justify-content: flex-end; padding: 2px 8px 0; }
+.publications-v3 .pub-more-collapse {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 40px;
+    padding: 6px 8px; border: 0; border-radius: 5px; background: transparent;
+    color: var(--pub-accent); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.publications-v3 .pub-more-collapse:hover { background: #f1f7fd; }
+.publications-v3 .pub-more-toggle:focus-visible,
+.publications-v3 .pub-more-collapse:focus-visible { outline: 2px solid #7ba7d1; outline-offset: 4px; }
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .container { gap: 32px; }
+    .sidebar { flex-basis: 210px; }
+    .sidebar h1 { font-size: 28px; }
+}
+@media (max-width: 768px) {
+    .container { gap: 25px; }
+    .sidebar { padding-top: 0; padding-bottom: 20px; }
+    .sidebar h1 { margin-top: 5px; margin-bottom: 6px; }
+    .sidebar h3 { margin-bottom: 15px; }
+    .profile-links { display: flex; flex-wrap: wrap; gap: 10px 17px; margin-top: 0; padding-top: 0; border-top: 0; font-size: 13px; }
+    .profile-location { flex-basis: 100%; }
+    .profile-location, .profile-link { margin-bottom: 0; gap: 7px; }
+    .profile-icon { width: 23px; height: 23px; font-size: 11px; }
+    .site-nav { margin-top: 18px; padding-top: 14px; }
+    .site-nav-label { display: none; }
+    .site-nav-links { display: flex; flex-wrap: wrap; gap: 5px; }
+    .site-nav a { font-size: 11.5px; padding: 7px 8px; border-left: 0; border-radius: 5px; }
+    .site-nav a[aria-current="location"] { border-left: 0; }
+    .main-content #bio h2 { margin-top: 0; }
+    .project-shortcuts-grid { gap: 9px; }
+    .project-shortcut { padding: 10px 12px; }
+    .project-shortcut-description { font-size: 11px; }
+    .publications-v3 .pub-more { margin-top: 28px; }
+    .publications-v3 .pub-more-toggle { padding: 12px; font-size: 11px; gap: 8px; }
+    .publications-v3 .pub-more-action { gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .publications-v3 .pub-more-toggle, .publications-v3 .pub-more-chevron,
+    .site-nav a, .project-shortcut { transition: none; }
+}
+@media print {
+    html { scroll-behavior: auto; }
+    .site-nav, .project-shortcuts, .site-footer, .skip-link,
+    .publications-v3 .pub-more-toggle, .publications-v3 .pub-more-footer { display: none; }
+}
+
     </style>
 </head>
 
-<body>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="container">
         <aside class="sidebar">
             <h1>Huanqia Cai</h1>
@@ -453,12 +610,36 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
                 </a>
                 -->
             </div>
+        
+            <nav class="site-nav" aria-label="On this page">
+                <p class="site-nav-label">On this page</p>
+                <div class="site-nav-links">
+                    <a href="#bio" aria-current="location">About</a>
+                    <a href="#news">News</a>
+                    <a href="#selected-work">Selected work</a>
+                    <a href="#more-publications">More publications</a>
+                </div>
+            </nav>
         </aside>
-        <main class="main-content">
+        <main class="main-content" id="main-content">
             <section id="bio">
                 <h2>Biography</h2>
                 <div class="bio-text">
                     <p>I am a researcher at <strong>Alibaba Tongyi Lab</strong>, where I lead <strong>Z-Image's reinforcement learning alignment</strong>. My work mainly focuses on foundation model post-training, spanning SFT, RL, and training infrastructure, while also contributing to pre-training for advanced model capabilities. My research centers on <strong>multimodal generation and understanding</strong>. Earlier, I worked on multimodal large language models at <strong>Tencent Hunyuan</strong>, with a focus on improving their advanced reasoning capabilities.</p>
+                </div>
+            
+                <div class="project-shortcuts" aria-label="Featured project shortcuts">
+                    <p class="project-shortcuts-label">Featured projects</p>
+                    <div class="project-shortcuts-grid">
+                        <a class="project-shortcut" href="#z-image">
+                            <span class="project-shortcut-title"><strong>Z-Image</strong><span class="project-shortcut-arrow" aria-hidden="true">↓</span></span>
+                            <span class="project-shortcut-description">Image generation</span>
+                        </a>
+                        <a class="project-shortcut" href="#z-reward">
+                            <span class="project-shortcut-title"><strong>Z-Reward</strong><span class="project-shortcut-arrow" aria-hidden="true">↓</span></span>
+                            <span class="project-shortcut-description">Reward modeling</span>
+                        </a>
+                    </div>
                 </div>
             </section>
             <section id="news">
@@ -512,7 +693,36 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
 <p class="pub-legend">* Equal contribution. † Project Lead.</p>
 
 </div>
-<h3 class="pub-group-title">Selected work</h3>
+<h3 class="pub-group-title" id="selected-work">Selected work</h3>
+<article aria-labelledby="z-image-title" class="publication publication--featured" id="z-image">
+<div class="pub-meta">
+<span class="pub-venue">Tech Report, 2025</span>
+</div>
+<h3 class="pub-title" id="z-image-title"><a href="https://arxiv.org/abs/2511.22699" rel="noopener noreferrer" target="_blank">Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer</a> <a class="pub-repo-badge pub-repo-badge--inline"
+   href="https://github.com/Tongyi-MAI/Z-Image" target="_blank" rel="noopener noreferrer"
+   aria-label="Z-Image GitHub stars" title="Z-Image on GitHub">
+    <img src="https://img.shields.io/github/stars/Tongyi-MAI/Z-Image?style=social&amp;label=Stars"
+         alt="GitHub Stars" loading="eager" decoding="async"
+         onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+    <span hidden>GitHub Stars ↗</span>
+</a></h3>
+<p class="pub-authors"><span class="me">Huanqia Cai</span>, Sihan Cao, Ruoyi Du, Peng Gao, Steven Hoi, et al.</p><figure class="pub-media">
+<a aria-label="Open full-size figure for Z-Image" class="pub-media-link" href="images/zimage.png" rel="noopener noreferrer" target="_blank">
+<img alt="Z-Image Teaser" decoding="async" loading="eager" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="images/zimage.png"/>
+<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
+</a>
+
+</figure>
+<p class="pub-description">Z-Image is a state-of-the-art foundation model designed for high efficiency. <strong>Community Impact:</strong> It is the #2 most popular Chinese model on Hugging Face and ranks 2nd in global API usage on fal.ai (next to Gemini Nano). It excels at generating photorealistic images with superior visual quality while maintaining low computational cost.</p>
+<div class="pub-bottom">
+<div class="pub-resources">
+<a class="pub-resource" href="https://arxiv.org/abs/2511.22699" rel="noopener noreferrer" target="_blank">Paper</a>
+<a class="pub-resource" href="https://github.com/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank">Code</a>
+<a class="pub-resource" href="https://huggingface.co/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank">HuggingFace</a>
+</div>
+
+</div>
+</article>
 <article aria-labelledby="z-reward-title" class="publication publication--featured" id="z-reward">
 <div class="pub-meta">
 <span class="pub-venue">Tech Report, 2026</span>
@@ -537,28 +747,7 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
 
 </div>
 </article>
-<article aria-labelledby="z-image-title" class="publication publication--featured" id="z-image">
-<div class="pub-meta">
-<span class="pub-venue">Tech Report, 2025</span>
-</div>
-<h3 class="pub-title" id="z-image-title"><a href="https://arxiv.org/abs/2511.22699" rel="noopener noreferrer" target="_blank">Z-Image: An Efficient Image Generation Foundation Model</a></h3>
-<p class="pub-authors"><span class="me">Huanqia Cai</span>, Sihan Cao, Ruoyi Du, Peng Gao, Steven Hoi, et al.</p><figure class="pub-media">
-<a aria-label="Open full-size figure for Z-Image" class="pub-media-link" href="images/zimage.png" rel="noopener noreferrer" target="_blank">
-<img alt="Z-Image Teaser" decoding="async" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="images/zimage.png"/>
-<span class="pub-image-error" hidden="">Figure could not be loaded. Open original ↗</span>
-</a>
 
-</figure>
-<p class="pub-description">Z-Image is a state-of-the-art foundation model designed for high efficiency. <strong>Community Impact:</strong> It is the #2 most popular Chinese model on Hugging Face and ranks 2nd in global API usage on fal.ai (next to Gemini Nano). It excels at generating photorealistic images with superior visual quality while maintaining low computational cost.</p>
-<div class="pub-bottom">
-<div class="pub-resources">
-<a class="pub-resource" href="https://arxiv.org/abs/2511.22699" rel="noopener noreferrer" target="_blank">Paper</a>
-<a class="pub-resource" href="https://github.com/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank">Code</a>
-<a class="pub-resource" href="https://huggingface.co/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank">HuggingFace</a>
-<a class="pub-repo-badge" href="https://github.com/Tongyi-MAI/Z-Image" rel="noopener noreferrer" target="_blank"><img alt="GitHub Stars" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="https://img.shields.io/github/stars/Tongyi-MAI/Z-Image?style=social&amp;label=Stars"/><span hidden="">GitHub ↗</span></a></div>
-
-</div>
-</article>
 <article aria-labelledby="mm-iq-title" class="publication publication--featured" id="mm-iq">
 <div class="pub-meta">
 <span class="pub-venue">arXiv Preprint, 2024</span>
@@ -579,7 +768,13 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
 
 </div>
 </article>
-<h3 class="pub-group-title pub-group-title--more">More publications</h3>
+<!-- Two visible secondary papers; the remaining three expand together. -->
+<div class="pub-more" id="more-publications" role="region" aria-labelledby="more-publications-title">
+    <div class="pub-more-heading">
+        <h3 class="pub-group-title" id="more-publications-title">More publications</h3>
+        <span class="pub-more-count">5 papers</span>
+    </div>
+    <div class="pub-more-preview">
 <article aria-labelledby="pixel-space-diffusion-title" class="publication publication--compact" id="pixel-space-diffusion">
 <div class="pub-meta">
 <span class="pub-venue">arXiv Preprint, 2026</span>
@@ -611,6 +806,13 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
 
 </div>
 </article>
+    </div>
+    <details class="pub-more-details" id="more-publications-extra">
+        <summary class="pub-more-toggle">
+            <span class="pub-more-status"><span class="pub-more-collapsed">Showing 2 of 5</span><span class="pub-more-expanded">Showing all 5</span></span>
+            <span class="pub-more-action"><span class="pub-more-collapsed">Show 3 more publications</span><span class="pub-more-expanded">Show fewer publications</span><svg class="pub-more-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <div class="pub-more-rest">
 <article aria-labelledby="system-2-title" class="publication publication--compact" id="system-2">
 <div class="pub-meta">
 <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 2024</span>
@@ -658,9 +860,68 @@ h2 { font-size: 21px; font-weight: 700; border-bottom: 1px solid var(--border); 
 
 </div>
 </article>
+        </div>
+        <div class="pub-more-footer"><button class="pub-more-collapse" type="button" aria-controls="more-publications-extra" hidden>Show fewer publications <span aria-hidden="true">↑</span></button></div>
+    </details>
+</div>
 </section>
+        <footer class="site-footer"><a href="mailto:caihuanqia@outlook.com">Get in touch</a><a href="#top">Back to top ↑</a></footer>
         </main>
     </div>
+
+
+<script>
+/* Enhancement only: native details and anchor links remain usable without JS. */
+(() => {
+    'use strict';
+    const details = document.getElementById('more-publications-extra');
+    if (details) {
+        const summary = details.querySelector('summary');
+        const collapse = details.querySelector('.pub-more-collapse');
+        collapse.hidden = false;
+        collapse.addEventListener('click', () => {
+            details.open = false;
+            summary.focus({ preventScroll: true });
+            summary.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+        });
+        function revealLinkedPaper() {
+            let id;
+            try { id = decodeURIComponent(location.hash.slice(1)); }
+            catch (_) { return; }
+            const target = id ? document.getElementById(id) : null;
+            if (target && details.contains(target)) {
+                details.open = true;
+                requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+            }
+        }
+        window.addEventListener('hashchange', revealLinkedPaper);
+        revealLinkedPaper();
+        let wasOpen = false;
+        window.addEventListener('beforeprint', () => { wasOpen = details.open; details.open = true; });
+        window.addEventListener('afterprint', () => { details.open = wasOpen; });
+    }
+    const items = [...document.querySelectorAll('.site-nav-links a')].map(link => ({
+        link, target: document.getElementById(link.hash.slice(1))
+    })).filter(item => item.target);
+    let pending = false;
+    function updateNavigation() {
+        pending = false;
+        let active = items[0];
+        for (const item of items) {
+            if (item.target.getBoundingClientRect().top <= Math.max(90, innerHeight * .25)) active = item;
+        }
+        for (const item of items) {
+            if (item === active) item.link.setAttribute('aria-current', 'location');
+            else item.link.removeAttribute('aria-current');
+        }
+    }
+    window.addEventListener('scroll', () => {
+        if (!pending) { pending = true; requestAnimationFrame(updateNavigation); }
+    }, { passive: true });
+    window.addEventListener('resize', updateNavigation);
+    updateNavigation();
+})();
+</script>
 
 </body>
 </html>
